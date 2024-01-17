@@ -317,6 +317,7 @@ Tower.prototype.determineTarget = function() {
 Tower.prototype.attackTarget = function() {
 	if (this.target != null && this.target.y > 0) {
 		this.target.layer -= this.attackPower;
+		money++;
 		return;
 	}
 };
