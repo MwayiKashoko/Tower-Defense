@@ -820,7 +820,6 @@ function draw() {
 			//If the enemy's y position is greater than or equal to the height of the screen, remove the enemy from the enemies 
 			if (b.layer <= 0 || b.y >= height) {
 				if (b.layer <= 0 && mode != "deflation" && mode != "sandbox") {
-					money += b.originalLayer;
 					b.alive = false;
 				}
 
