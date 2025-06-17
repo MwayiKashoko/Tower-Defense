@@ -8,82 +8,100 @@
 				font-family: Helvetica;
 				background: #AAA;
 				text-align: center;
+				margin: 0;
+			}
+
+			#layout {
+				display: flex;
+				align-items: flex-start; /* align items to the top */
+				justify-content: center;
+				padding-top: 50px; /* spacing from top of page */
+				gap: 40px; /* space between sidebar and canvases */
 			}
 
 			#information {
-				display: inline-block;
-				position: relative;
-
-				margin-top: 17.69vh;
-				left: 22.38vw;
-				width: 15vw;
-				height: 69vh;
+				width: 15vw; /* fixed or flexible */
 				font-size: 1vw;
+				padding: 1.2vw;
+				box-sizing: border-box;
+			}
+
+			#canvas-wrapper {
+				display: inline-block;
+				margin-top: 100px; /* or any value that gives spacing from top */
+			}
+
+			#canvas,
+			#canvas1 {
+				display: block;
+				width: 36vw;
+				margin: 0 auto; /* centers horizontally */
 			}
 
 			#canvas {
-				position: fixed;
-				top: 10.08vh !important;
-				left: 27vw;
-				width: 36vw;
-				aspect-ratio: 1/1;
+				aspect-ratio: 1 / 1; /* square */
 			}
 
 			#canvas1 {
-				position: fixed;
-				top: 81.3vh !important;
-				left: 27vw;
-				width: 36vw;
-				height: 8.49vh;
+				height: 8.49vh; /* or better, use px or % if you want fixed height */
 			}
 		</style>
 	</head>
 
 	<body>
-		<canvas id="canvas" width="600" height="600"></canvas>
+		<div id="layout">
+			<div id="canvas-wrapper">
+				<canvas id="canvas" width="600" height="600"></canvas>
+				<canvas id="canvas1" width="600" height="80"> </canvas>
+			</div>
 
-		<div id="information">
-			<span id="stats">
-				<h2 id="money"> Money: </h2>
+			<div id="information">
+				<span id="stats">
+					<h2 id="money"> Money: </h2>
 
-				<h2 id="lives"> Lives: </h2>
-			</span>
+					<h2 id="lives"> Lives: </h2>
+				</span>
 
-			<span id="towers">
-				No Tower Selected <input type="radio" name="tower_selected" checked> <br> <br>
+				<span id="towers">
+					No Tower Selected <input type="radio" name="tower_selected" checked> <br> <br>
 
-				Tower 1: <input type="radio" id="tower1" name="tower_selected"> <span id="tower1stats"></span> <br> <br>
+					Tower 1: <input type="radio" id="tower1" name="tower_selected"> <span id="tower1stats"></span> <br> <br>
 
-				Tower 2: <input type="radio" id="tower2" name="tower_selected"> <span id="tower2stats"></span> <br> <br>
+					Tower 2: <input type="radio" id="tower2" name="tower_selected"> <span id="tower2stats"></span> <br> <br>
 
-				Tower 3: <input type="radio" id="tower3" name="tower_selected"> <span id="tower3stats"></span> <br> <br>
+					Tower 3: <input type="radio" id="tower3" name="tower_selected"> <span id="tower3stats"></span> <br> <br>
 
-				Tower 4: <input type="radio" id="tower4" name="tower_selected"> <span id="tower4stats"></span> <br> <br>
+					Tower 4: <input type="radio" id="tower4" name="tower_selected"> <span id="tower4stats"></span> <br> <br>
 
-				Tower 5: <input type="radio" id="tower5" name="tower_selected"> <span id="tower5stats"></span> <br> <br> <br> <br>
-			</span>
+					Tower 5: <input type="radio" id="tower5" name="tower_selected"> <span id="tower5stats"></span> <br> <br>
 
-			<span id="go_back">
+					Tower 6: <input type="radio" id="tower6" name="tower_selected"> <span id="tower6stats"></span> <br> <br>
 
-			</span>  <br> <br> <br> <br>
+					Tower 7: <input type="radio" id="tower7" name="tower_selected"> <span id="tower7stats"></span> <br> <br>
 
-			Fast Forward: <input id="fast_forward" type="checkbox"> <br> <br> <br> <br>
+					Tower 8: <input type="radio" id="tower8" name="tower_selected"> <span id="tower8stats"></span> <br> <br> <br> <br>
+				</span>
 
-			<span id="enemy_spawn" style="display:none;">
-				<span id="enemyHolder1"></span> <br> <br>
-				<span id="enemyHolder2"></span> <br> <br>
-				<span id="enemyHolder3"></span> <br> <br>
-				<span id="enemyHolder4"></span> <br> <br>
-				<span id="enemyHolder5"></span> <br> <br>
-				<span id="enemyHolder6"></span> <br> <br>
-				<span id="enemyHolder7"></span> <br> <br>
-				<span id="enemyHolder8"></span> <br> <br>
-				<span id="enemyHolder9"></span> <br> <br>
-				<span id="enemyHolder10"></span> <br> <br>
-			</span>
-		</div> <br>
+				<span id="go_back">
 
-		<canvas id="canvas1" width="600" height="80"> </canvas> <br>
+				</span>  <br> <br> <br> <br>
+
+				Fast Forward: <input id="fast_forward" type="checkbox"> <br> <br> <br> <br>
+
+				<span id="enemy_spawn" style="display:none;">
+					<span id="enemyHolder1"></span> <br> <br>
+					<span id="enemyHolder2"></span> <br> <br>
+					<span id="enemyHolder3"></span> <br> <br>
+					<span id="enemyHolder4"></span> <br> <br>
+					<span id="enemyHolder5"></span> <br> <br>
+					<span id="enemyHolder6"></span> <br> <br>
+					<span id="enemyHolder7"></span> <br> <br>
+					<span id="enemyHolder8"></span> <br> <br>
+					<span id="enemyHolder9"></span> <br> <br>
+					<span id="enemyHolder10"></span> <br> <br>
+				</span>
+			</div> <br>
+		</div>
 
 		<script src="jsFunctions.js"> </script>
 		<script src="Tower Defense Function.js"> </script>
