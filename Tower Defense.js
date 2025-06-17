@@ -197,14 +197,25 @@ function determinePointer1(mouseX1, mouseY1) {
 	return false;
 }
 
+const getMousePos = (evt) => {
+	const rect = canvas.getBoundingClientRect();
+
+	return {
+		x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
+		y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
+	};
+}
+
 canvas.addEventListener("mousemove", function(e) {
-	mouseX = e.clientX-canvas.offsetLeft;
-	mouseY = e.clientY-canvas.offsetTop;
+	let m = getMousePos(e);
+	mouseX = m.x;
+	mouseY = m.y;
 });
 
 canvas.addEventListener("click", function(e) {
-	var mouseX = e.clientX-canvas.offsetLeft;
-	var mouseY = e.clientY-canvas.offsetTop;
+	let m = getMousePos(e);
+	let mouseX = m.x;
+	let mouseY = m.y;
 
 	//Hey developers can have fun too. This is just for removing enemies by clicking on them
 	/*for (let i = 0; i < enemies.length; i++) {
